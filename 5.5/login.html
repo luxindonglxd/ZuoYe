@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body>
+		<div class="login">
+			<div class="login_main">
+				<h4>登录管理系统</h4>
+				<form action="">
+					<ul>
+						<li>
+							<span>管理员账号：</span>
+							<input type="text" name="username" value=""/>
+						</li>
+						<li>
+							<span>管理员密码：</span>
+							<input type="password" name="password" value=""/>
+						</li>
+						<li>
+							<span>登录验证码：</span>
+							<input type="text" name="yzm"/>
+						</li>
+						<li>
+							<div class="yzmimg">
+								<img src="img/verifyimg.png"/>
+							</div>
+						</li>
+						<li>
+							<input type="button" value="登录" name="loginbtn"/>
+							<span id="text"></span>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){ 
+		$('input[name="loginbtn"]').click(function(event){
+			var $name=$('input[name="username"]');
+			var $password=$('input[name="password"]');
+			var $yzm=$('input[name="yzm"]');
+			var $text=$('#text');
+//			trim删除字符串开始和末尾的空格
+			var _name=$.trim($name.val());
+			var _password=$.trim($password.val());
+			var _yzm=$.trim($yzm.val());
+			if(''==_name){
+				$text.text('请输入用户名！');
+//				focus获得焦点
+				$name.focus();
+				return;
+			}
+			if(''==_password){
+				$text.text('请输入密码！');
+				$password.focus();
+				return;
+			}
+			if(''==_yzm){
+				$text.text('请输入验证码！');
+				$yzm.focus();
+				return;
+			}
+			$text.text('登录成功，请稍候！');
+		});
+	});
+</script>

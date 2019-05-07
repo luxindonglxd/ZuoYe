@@ -1,0 +1,44 @@
+.login{
+	width:500px;
+	height: 340px;
+	background: #0077ca;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.login_main{
+	padding: 20px;
+	color: #fff;
+}
+.login_main ul li{
+	margin-top: 15px;
+}
+.login_main ul li span{
+	font-size: 14px;
+	display: inline-block;
+	width: 126px;
+	height: 30px;
+	text-align: right;
+}
+.login_main ul li input[type="text"],.login_main ul li input[type="password"]{
+	width: 250px;
+	height: 30px;
+	padding: 0 5px;
+}
+.login_main ul li .yzmimg{
+	width: 264px;
+	margin-left: 128px;
+	background: #1696d7;
+}
+.login_main ul li input[type="button"]{
+	width: 80px;
+	height: 30px;
+	border: none;
+	background: #00497d;
+	color: #fff;
+	font-size: 14px;
+	margin-left: 128px;
+}
