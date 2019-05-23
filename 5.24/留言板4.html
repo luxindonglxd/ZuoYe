@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		table{border-collapse: collapse; border-spacing: 0;width: 100%;text-align: center;border-color:red ;}
+		.main{width: 900px;margin: auto;}
+
+	</style>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="main">
+			<h2>添加用户</h2>
+			<form action="">
+				<p>
+					<label for="">姓名：</label>
+					<input type="text" v-model="user.name" placeholder="请输入姓名" />
+				</p>
+				<p>
+					<label for="">年龄：</label>
+					<input type="text" v-model="user.age"  placeholder="请输入年龄" />
+				</p>
+				<p>
+					<label for="">邮箱：</label>
+					<input type="text" v-model="user.email" placeholder="请输入邮箱" />
+				</p>
+				<div>
+					<input type="button" value="添加" v-on:click="add"/>
+					<input type="reset" />
+				</div>
+			</form>
+			<hr />
+			<h2>用户列表</h2>
+			<table border="1">
+				<tr>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>邮箱</th>
+					<th>操作</th>
+				</tr>
+				<!--<tr>
+					<td>1</td>
+					<td>tom</td>
+					<td>20</td>
+					<td>1742284076@qq.com</td>
+					<td><button>删除</button></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>jom</td>
+					<td>50</td>
+					<td>8882284076@qq.com</td>
+					<td> <button>删除</button> </td>
+				</tr>-->
+				<tr v-for="(item,index) in userInfo">
+					<td>{{index+1}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.age}}</td>
+					<td>{{item.email}}</td>
+					<td><button v-on:click="del(index)">删除</button></td>
+				</tr>
+				
+				<tr v-show="flag">
+					<td colspan="5" style="text-align: right;padding-right: 24px;"><button v-on:click="alldel">全部删除</button></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
+<script>
+	new Vue({
+		el:".main",
+		data:{
+			flag:true,
+			user:{},
+			userInfo:[
+				{
+					name:"wang",
+					age:"20",
+					email:"dsge r"
+				},
+				{
+					name:"wang",
+					age:"20",
+					email:"dsger"
+				},
+			]
+		},
+		methods:{
+			add:function(){
+				this.userInfo.push(this.user);
+				this.user={};
+			},
+			del:function(i){
+				this.userInfo.splice(i,1);
+				
+			},
+			alldel:function(){
+				this.userInfo=[];
+				this.flag=false;
+			}
+		}
+		
+	})
+</script>
