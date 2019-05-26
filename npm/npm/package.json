@@ -1,0 +1,16 @@
+{
+  "name": "luxindong",
+  "version": "0.0.2",
+  "description": "这是测试包，不要下",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lu",
+    "xin",
+    "dong"
+  ],
+  "author": "lxd",
+  "license": "ISC"
+}
