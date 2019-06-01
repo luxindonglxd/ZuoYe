@@ -1,0 +1,19 @@
+const express=require('express');
+const cookieParser=require('cookie-parser');
+var server=express();
+
+//cookie
+server.use(cookieParser('sggreg'));
+
+server.use('/',function(req,res){
+//	req.secret='sggreg';
+//	res.cookie('uesr','nlue',{signed:true})
+//	console.log("签名cookies",req.signedCookies);
+//	console.log("无签名cookies",req.cookies);
+	res.clearCookie('user')
+	res.end('ok');
+})
+
+
+
+server.listen(8080);
